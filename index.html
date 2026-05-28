@@ -489,7 +489,7 @@
   <main class="page">
     <section class="hero">
       <div class="hero-badge">📅 GetAmped Daily Battle Pass</div>
-      <h1>รายละเอียดเควสBattle Passรายวัน<br><span>Battle Pass Daily Quest</span></h1>
+      <h1>รายละเอียดเควสรายวัน<br><span>Daily Quest Details</span></h1>
       <p class="subtitle">
         เควสรีเซ็ททุกวันเวลา 17.00 น. (GMT+7)<br>
         Daily quests reset every day at 17:00 (GMT+7)<br>
@@ -501,7 +501,7 @@
       <div class="countdown-box">
         <div class="countdown-title">⏳ เวลาจนถึงเควสถัดไป / Time Until Next Quest</div>
         <div class="countdown-timer" id="countdownTimer">--:--:--</div>
-        
+        <div class="quest-flow" id="questFlowText"></div>
         <div class="progress-wrap">
           <div class="progress-head">
             <span>Reset Progress</span>
@@ -606,19 +606,19 @@
 
     const colorMap = {
       monday: {
-        main: "#4f83ff",
-        accent: "linear-gradient(135deg, #4f83ff, #6ca2ff)",
-        soft: "#eaf1ff"
+        main: "#f5b301",
+        accent: "linear-gradient(135deg, #f5b301, #ffd86b)",
+        soft: "#fff7d8"
       },
       tuesday: {
+        main: "#f25790",
+        accent: "linear-gradient(135deg, #f25790, #ff8fbd)",
+        soft: "#ffeaf2"
+      },
+      wednesday: {
         main: "#22b36f",
         accent: "linear-gradient(135deg, #22b36f, #4dd08f)",
         soft: "#e8fbf1"
-      },
-      wednesday: {
-        main: "#8b5cf6",
-        accent: "linear-gradient(135deg, #8b5cf6, #a982ff)",
-        soft: "#f1ebff"
       },
       thursday: {
         main: "#ff962f",
@@ -626,19 +626,19 @@
         soft: "#fff3e5"
       },
       friday: {
-        main: "#f25790",
-        accent: "linear-gradient(135deg, #f25790, #ff80af)",
-        soft: "#ffeaf2"
-      },
-      saturday: {
         main: "#32b7c7",
         accent: "linear-gradient(135deg, #32b7c7, #59d1de)",
         soft: "#e9fbfd"
       },
+      saturday: {
+        main: "#8b5cf6",
+        accent: "linear-gradient(135deg, #8b5cf6, #a982ff)",
+        soft: "#f1ebff"
+      },
       sunday: {
-        main: "#5c7cff",
-        accent: "linear-gradient(135deg, #5c7cff, #88a0ff)",
-        soft: "#edf1ff"
+        main: "#ef4444",
+        accent: "linear-gradient(135deg, #ef4444, #ff7a7a)",
+        soft: "#ffe8e8"
       }
     };
 
@@ -671,7 +671,7 @@
     const currentQuestBox = document.getElementById("currentQuestBox");
     const currentDateTimeEl = document.getElementById("currentDateTime");
     const countdownTimerEl = document.getElementById("countdownTimer");
-    
+    const questFlowTextEl = document.getElementById("questFlowText");
     const progressFillEl = document.getElementById("progressFill");
     const progressPercentEl = document.getElementById("progressPercent");
 
@@ -800,7 +800,7 @@
 
       currentDateTimeEl.textContent = `เวลาปัจจุบัน: ${formatThaiDateTime(now)} (เวลาไทย)`;
       countdownTimerEl.textContent = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
-      
+      questFlowTextEl.innerHTML = `Current: <b>${currentQuestDayName}</b> <span>→</span> Next: <b>${nextQuestDayName}</b>`;
       progressFillEl.style.width = `${progress}%`;
       progressPercentEl.textContent = `${Math.floor(progress)}%`;
     }
