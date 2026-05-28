@@ -454,8 +454,16 @@
     .quest-title {
       color: #1f2a44;
       font-size: 17px;
-      font-weight: 800;
-      line-height: 1.5;
+      font-weight: 850;
+      line-height: 1.55;
+      letter-spacing: -0.2px;
+    }
+
+    .quest-title span {
+      display: inline-block;
+      margin-top: 2px;
+      font-weight: 700;
+      opacity: 0.88;
     }
 
     @media (max-width: 720px) {
@@ -524,85 +532,7 @@
   </main>
 
   <script>
-    const dailyQuests = [
-      {
-        day: "วันจันทร์",
-        pass: "DAILY PASS 6",
-        color: "monday",
-        quests: [
-          { no: 1, icon: "⚔️", text: "เล่น AMPED DEATHMATCH จำนวน 2 ครั้ง (Play AMPED DEATHMATCH 2 Times)" },
-          { no: 2, icon: "🎮", text: "เล่น TEAM DEATHMATCH จำนวน 1 ครั้ง (Play TEAM DEATHMATCH 1 Time)" },
-          { no: 3, icon: "⛏️", text: "ขุดสำเร็จ จำนวน 2 ครั้ง (Successful Dig 2 Times)" },
-          { no: 4, icon: "⭐", text: "ทำคะแนนให้ได้ 500 คะแนน (Reach 500 Points)" }
-        ]
-      },
-      {
-        day: "วันอังคาร",
-        pass: "DAILY PASS 7",
-        color: "tuesday",
-        quests: [
-          { no: 1, icon: "⚔️", text: "เล่น AMPED DEATHMATCH จำนวน 2 ครั้ง (Play AMPED DEATHMATCH 2 Times)" },
-          { no: 2, icon: "🎮", text: "เล่น TEAM DEATHMATCH จำนวน 1 ครั้ง (Play TEAM DEATHMATCH 1 Time)" },
-          { no: 3, icon: "⚔️", text: "ฆ่าผู้เล่น จำนวน 2 คน (Kill 2 Players)" },
-          { no: 4, icon: "🛡️", text: "เล่นสไตล์นักรบหุ้มเกราะ จำนวน 2 ครั้ง (Play Armor Style 2 Times)" }
-        ]
-      },
-      {
-        day: "วันพุธ",
-        pass: "DAILY PASS 1",
-        color: "wednesday",
-        quests: [
-          { no: 1, icon: "⚔️", text: "เล่น AMPED DEATHMATCH จำนวน 2 ครั้ง (Play AMPED DEATHMATCH 2 Times)" },
-          { no: 2, icon: "🎮", text: "เล่น TEAM DEATHMATCH จำนวน 1 ครั้ง (Play TEAM DEATHMATCH 1 Time)" },
-          { no: 3, icon: "🎯", text: "ทำคะแนนให้ได้ 500 คะแนน (Reach 500 Points)" },
-          { no: 4, icon: "⬆️", text: "อัปเกรด จำนวน 2 ครั้ง (Upgrade 2 Times)" }
-        ]
-      },
-      {
-        day: "วันพฤหัสบดี",
-        pass: "DAILY PASS 2",
-        color: "thursday",
-        quests: [
-          { no: 1, icon: "⚔️", text: "เล่น AMPED DEATHMATCH จำนวน 2 ครั้ง (Play AMPED DEATHMATCH 2 Times)" },
-          { no: 2, icon: "🎮", text: "เล่น TEAM DEATHMATCH จำนวน 1 ครั้ง (Play TEAM DEATHMATCH 1 Time)" },
-          { no: 3, icon: "🐟", text: "ตกปลาสำเร็จ จำนวน 5 ครั้ง (Successful Fishing 5 Times)" },
-          { no: 4, icon: "🏆", text: "เคลียร์ชาเลนจ์ จำนวน 1 ครั้ง (Clear Challenge 1 Time)" }
-        ]
-      },
-      {
-        day: "วันศุกร์",
-        pass: "DAILY PASS 3",
-        color: "friday",
-        quests: [
-          { no: 1, icon: "⚔️", text: "เล่น AMPED DEATHMATCH จำนวน 2 ครั้ง (Play AMPED DEATHMATCH 2 Times)" },
-          { no: 2, icon: "🎮", text: "เล่น TEAM DEATHMATCH จำนวน 1 ครั้ง (Play TEAM DEATHMATCH 1 Time)" },
-          { no: 3, icon: "🪱", text: "ตกปลาพลาด จำนวน 5 ครั้ง (Fishing Fail 5 Times)" },
-          { no: 4, icon: "⭐", text: "ทำคะแนนให้ได้ 500 คะแนน (Reach 500 Points)" }
-        ]
-      },
-      {
-        day: "วันเสาร์",
-        pass: "DAILY PASS 4",
-        color: "saturday",
-        quests: [
-          { no: 1, icon: "⚔️", text: "เล่น AMPED DEATHMATCH จำนวน 2 ครั้ง (Play AMPED DEATHMATCH 2 Times)" },
-          { no: 2, icon: "🎮", text: "เล่น TEAM DEATHMATCH จำนวน 1 ครั้ง (Play TEAM DEATHMATCH 1 Time)" },
-          { no: 3, icon: "⛏️", text: "ขุดสำเร็จ จำนวน 5 ครั้ง (Successful Dig 5 Times)" },
-          { no: 4, icon: "⭐", text: "ทำคะแนนให้ได้ 500 คะแนน (Reach 500 Points)" }
-        ]
-      },
-      {
-        day: "วันอาทิตย์",
-        pass: "DAILY PASS 5",
-        color: "sunday",
-        quests: [
-          { no: 1, icon: "⚔️", text: "เล่น AMPED DEATHMATCH จำนวน 2 ครั้ง (Play AMPED DEATHMATCH 2 Times)" },
-          { no: 2, icon: "🎮", text: "เล่น TEAM DEATHMATCH จำนวน 1 ครั้ง (Play TEAM DEATHMATCH 1 Time)" },
-          { no: 3, icon: "🌀", text: "เล่นเอสเปอร์ จำนวน 2 ครั้ง (Play Esper 2 Times)" },
-          { no: 4, icon: "🏆", text: "เคลียร์ชาเลนจ์ จำนวน 1 ครั้ง (Clear Challenge 1 Time)" }
-        ]
-      }
-    ];
+    const dailyQuests = [ { day: "วันจันทร์", pass: "DAILY PASS 6", color: "monday", quests: [ { no: 1, icon: "⚔️", text: `เล่น AMPED DEATHMATCH 2 ครั้ง <span>(Play AMPED DEATHMATCH 2 Times)</span>` }, { no: 2, icon: "🎮", text: `เล่น TEAM DEATHMATCH 1 ครั้ง <span>(Play TEAM DEATHMATCH 1 Time)</span>` }, { no: 3, icon: "⛏️", text: `ขุดแร่สำเร็จ 2 ครั้ง <span>(Successful Dig 2 Times)</span>` }, { no: 4, icon: "⭐", text: `ได้รับ 500 คะแนน <span>(Earn 500 Points)</span>` } ] }, { day: "วันอังคาร", pass: "DAILY PASS 7", color: "tuesday", quests: [ { no: 1, icon: "⚔️", text: `เล่น AMPED DEATHMATCH 2 ครั้ง <span>(Play AMPED DEATHMATCH 2 Times)</span>` }, { no: 2, icon: "🎮", text: `เล่น TEAM DEATHMATCH 1 ครั้ง <span>(Play TEAM DEATHMATCH 1 Time)</span>` }, { no: 3, icon: "⚔️", text: `กำจัดผู้เล่น 2 ครั้ง <span>(Kill 2 Players)</span>` }, { no: 4, icon: "🛡️", text: `เล่นสไตล์ Armor 2 ครั้ง <span>(Play Armor Style 2 Times)</span>` } ] }, { day: "วันพุธ", pass: "DAILY PASS 1", color: "wednesday", quests: [ { no: 1, icon: "⚔️", text: `เล่น AMPED DEATHMATCH 2 ครั้ง <span>(Play AMPED DEATHMATCH 2 Times)</span>` }, { no: 2, icon: "🎮", text: `เล่น TEAM DEATHMATCH 1 ครั้ง <span>(Play TEAM DEATHMATCH 1 Time)</span>` }, { no: 3, icon: "⭐", text: `ได้รับ 500 คะแนน <span>(Earn 500 Points)</span>` }, { no: 4, icon: "⬆️", text: `อัพเกรด Accessory 2 ครั้ง <span>(Upgrade Accessory 2 Times)</span>` } ] }, { day: "วันพฤหัสบดี", pass: "DAILY PASS 2", color: "thursday", quests: [ { no: 1, icon: "⚔️", text: `เล่น AMPED DEATHMATCH 2 ครั้ง <span>(Play AMPED DEATHMATCH 2 Times)</span>` }, { no: 2, icon: "🎮", text: `เล่น TEAM DEATHMATCH 1 ครั้ง <span>(Play TEAM DEATHMATCH 1 Time)</span>` }, { no: 3, icon: "🐟", text: `ตกปลาสำเร็จ 5 ครั้ง <span>(Successful Fishing 5 Times)</span>` }, { no: 4, icon: "🏆", text: `เคลียร์ Challenge 1 ครั้ง <span>(Clear Challenge 1 Time)</span>` } ] }, { day: "วันศุกร์", pass: "DAILY PASS 3", color: "friday", quests: [ { no: 1, icon: "⚔️", text: `เล่น AMPED DEATHMATCH 2 ครั้ง <span>(Play AMPED DEATHMATCH 2 Times)</span>` }, { no: 2, icon: "🎮", text: `เล่น TEAM DEATHMATCH 1 ครั้ง <span>(Play TEAM DEATHMATCH 1 Time)</span>` }, { no: 3, icon: "🪱", text: `ตกปลาล้มเหลว 5 ครั้ง <span>(Fishing Fail 5 Times)</span>` }, { no: 4, icon: "⭐", text: `ได้รับ 500 คะแนน <span>(Earn 500 Points)</span>` } ] }, { day: "วันเสาร์", pass: "DAILY PASS 4", color: "saturday", quests: [ { no: 1, icon: "⚔️", text: `เล่น AMPED DEATHMATCH 2 ครั้ง <span>(Play AMPED DEATHMATCH 2 Times)</span>` }, { no: 2, icon: "🎮", text: `เล่น TEAM DEATHMATCH 1 ครั้ง <span>(Play TEAM DEATHMATCH 1 Time)</span>` }, { no: 3, icon: "⛏️", text: `ขุดแร่สำเร็จ 5 ครั้ง <span>(Successful Dig 5 Times)</span>` }, { no: 4, icon: "⭐", text: `ได้รับ 500 คะแนน <span>(Earn 500 Points)</span>` } ] }, { day: "วันอาทิตย์", pass: "DAILY PASS 5", color: "sunday", quests: [ { no: 1, icon: "⚔️", text: `เล่น AMPED DEATHMATCH 2 ครั้ง <span>(Play AMPED DEATHMATCH 2 Times)</span>` }, { no: 2, icon: "🎮", text: `เล่น TEAM DEATHMATCH 1 ครั้ง <span>(Play TEAM DEATHMATCH 1 Time)</span>` }, { no: 3, icon: "🌀", text: `เล่นสไตล์ Esper 2 ครั้ง <span>(Play Esper Style 2 Times)</span>` }, { no: 4, icon: "🏆", text: `เคลียร์ Challenge 1 ครั้ง <span>(Clear Challenge 1 Time)</span>` } ] } ];
 
     const colorMap = {
       monday: {
@@ -725,12 +655,14 @@
     }
 
     function createQuestHTML(quest) {
+      const formattedText = quest.text.replace(/ \((.+)\)$/, '<br><span>($1)</span>');
+
       return `
         <div class="quest">
           <div class="quest-icon">${quest.icon}</div>
           <div>
             <div class="quest-meta">เควส ${quest.no}</div>
-            <div class="quest-title">${quest.text}</div>
+            <div class="quest-title">${formattedText}</div>
           </div>
         </div>
       `;
